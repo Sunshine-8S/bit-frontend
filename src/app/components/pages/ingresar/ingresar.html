@@ -1,5 +1,4 @@
-<!-- registrarse -->
-<form [formGroup]="formularioIngreso" (ngSubmit)="handleSubmit()">
+<!-- <form [formGroup]="formularioIngreso" (ngSubmit)="handleSubmit()">
     <div>
         <label for="nombreUsuario">Nombre de usuario</label>
         <input type="nombreUsuario" formControlName="nombreUsuario" id="nombreUsuario">
@@ -9,4 +8,40 @@
         <input type="password" formControlName="contraseñaUsuario" id="contraseñaUsuario">
     </div>
     <button type="submit">Ingresar</button>
-</form>
+    <button type="button" (click)="irARecuperar()">Olvidé la contraseña</button>
+</form> -->
+
+<div class="container mt-5" style="max-width: 400px;">
+  <h2 class="text-center mb-4">Ingresar</h2>
+  <form [formGroup]="formularioIngreso" (ngSubmit)="handleSubmit()">
+    <div class="mb-3">
+      <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="nombreUsuario"
+        id="nombreUsuario"
+        placeholder="Tu usuario"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="contraseñaUsuario" class="form-label">Contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        formControlName="contraseñaUsuario"
+        id="contraseñaUsuario"
+        placeholder="••••••••"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+    <button
+      type="button"
+      class="btn btn-link w-100 mt-2"
+      (click)="irARecuperar()"
+    >
+      Olvidé la contraseña
+    </button>
+  </form>
+</div>
+

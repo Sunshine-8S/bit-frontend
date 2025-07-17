@@ -1,20 +1,67 @@
-<!-- registrarse -->
-<form [formGroup]="formularioRegistro" (ngSubmit)="handleSubmit()">
+<!-- <form [formGroup]="formularioRegistro" (ngSubmit)="handleSubmit()">
     <div>
-        <label for="nombreUsuario">Nombre del Usuario</label>
+        <label for="nombreUsuario">Nombre de Usuario</label>
         <input type="text" formControlName="nombreUsuario" id="nombreUsuario">
     </div>
     <div>
-        <label for="emailUsuario">Email del Usuario</label>
+        <label for="emailUsuario">Email</label>
         <input type="email" formControlName="emailUsuario" id="emailUsuario">
     </div>
     <div>
-        <label for="contraseñaUsuario">Contraseña del Usuario</label>
+        <label for="contraseñaUsuario">Contraseña</label>
         <input type="password" formControlName="contraseñaUsuario" id="contraseñaUsuario">
     </div>
     <div>
-        <label for="imagen">Imagen</label>
-        <input type="url" formControlName="imagen" id="imagen">
+        <label for="confirmarContraseña">Confirmar contraseña</label>
+        <input type="password" formControlName="confirmarContraseña" id="confirmarContraseña">
     </div>
     <button type="submit">Registrarse</button>
-</form>
+</form> -->
+
+<div class="container mt-5" style="max-width: 400px;">
+  <h2 class="text-center mb-4">Registrarse</h2>
+  <form [formGroup]="formularioRegistro" (ngSubmit)="handleSubmit()">
+    <div class="mb-3">
+      <label for="nombreUsuario" class="form-label">Nombre de Usuario</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="nombreUsuario"
+        id="nombreUsuario"
+        placeholder="Tu nombre"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="emailUsuario" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="emailUsuario"
+        id="emailUsuario"
+        placeholder="correo@ejemplo.com"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="contraseñaUsuario" class="form-label">Contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        formControlName="contraseñaUsuario"
+        id="contraseñaUsuario"
+        placeholder="••••••••"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="confirmarContraseña" class="form-label">Confirmar Contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        formControlName="confirmarContraseña"
+        id="confirmarContraseña"
+        placeholder="••••••••"
+      />
+    </div>
+    <button type="submit" class="btn btn-success w-100">Registrarse</button>
+  </form>
+</div>
+

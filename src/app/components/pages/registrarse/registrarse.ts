@@ -17,10 +17,15 @@ export class Registrarse {
     nombreUsuario: new FormControl('', Validators.required),
     emailUsuario: new FormControl('', Validators.required),
     contraseñaUsuario: new FormControl('', Validators.required),
-    imagen: new FormControl('', Validators.required)
+    confirmarContraseña: new FormControl('', Validators.required)
  });
 
   handleSubmit() {
+    const{contraseñaUsuario, confirmarContraseña} = this.formularioRegistro.value;
+    if (contraseñaUsuario !== confirmarContraseña) {
+      console.log("las contraseñas no coinciden");
+      return;
+    }
     if (this.formularioRegistro.valid) {
       this.registroServicio.registrarUsuario(this.formularioRegistro.value).subscribe((res:any) =>{
         if (res.allOK) {

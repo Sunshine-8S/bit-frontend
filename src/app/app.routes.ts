@@ -3,6 +3,7 @@ import { Ahorros } from './components/pages/ahorros/ahorros';
 import { Gastos } from './components/pages/gastos/gastos';
 import { Ingresar } from './components/pages/ingresar/ingresar';
 import { Registrarse } from './components/pages/registrarse/registrarse';
+import { RecuperarComponent } from './components/pages/recuperar/recuperar';
 import { PageNotFound } from './components/pages/page-not-found/page-not-found';
 
 export const routes: Routes = [
@@ -27,8 +28,12 @@ export const routes: Routes = [
         title: "Registrarse"
     },
     {
+        path: "recuperar",
+        component: RecuperarComponent,
+    },
+    {
         path: "",
-        redirectTo: "/ahorros",
+        redirectTo: "/ingresar",
         pathMatch: "full"
     },
     {
