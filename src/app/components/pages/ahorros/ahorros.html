@@ -1,13 +1,36 @@
+<div *ngIf="ahorroEditando" class="container mt-4">
+  <div class="card border-warning">
+    <div class="card-body">
+      <h3 class="card-title text-center mb-3">Editar ahorro</h3>
+      <form (ngSubmit)="guardarEdicionAhorro()" #formEditarAhorro="ngForm">
+        <div class="mb-3">
+          <input type="text" class="form-control" name="nombreAhorro" [(ngModel)]="ahorroEditando.nombreAhorro" placeholder="Nombre del ahorro" required />
+        </div>
+        <div class="mb-3">
+          <input type="date" class="form-control" name="fechaAhorro" [(ngModel)]="ahorroEditando.fechaAhorro" required />
+        </div>
+        <div class="mb-3">
+          <input type="number" class="form-control" name="montoGasto" [(ngModel)]="ahorroEditando.montoAhorro" placeholder="Monto" required />
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-success">Actualizar</button>
+          <button type="button" class="btn btn-secondary" (click)="ahorroEditando = null">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <div class="container mt-5">
-  <h2 class="text-center mb-4">Ahorros</h2>
+  <h2 class="text-center mb-4">Ahorros de {{ nombreUsuario }}</h2>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     <div class="col" *ngFor="let ahorro of ahorros">
-      <div class="card border-success h-100">
+      <div class="card border-danger h-100">
         <div class="card-body">
           <h5 class="card-title">{{ ahorro.nombreAhorro }}</h5>
           <p class="card-text">
-            <strong>Fecha:</strong> {{ ahorro.fechaAhorro | date:'shortDate' }}<br>
-            <strong>Monto:</strong> ${{ ahorro.montoAhorro }}
+            <strong>Fecha:</strong>{{ ahorro.fechaAhorro | date:'shortDate' }}<br>
+            <strong>Monto:</strong> {{ ahorro.montoAhorro | currency:'COP':'symbol-narrow':'1.0-0' }}
           </p>
           <button class="btn btn-outline-primary btn-sm me-2" (click)="editarAhorro(ahorro)">Editar</button>
           <button class="btn btn-outline-danger btn-sm" (click)="eliminarAhorro(ahorro._id)">Eliminar</button>
@@ -15,4 +38,14 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="contenedor-formulario">
+  <h3>Agregar nuevo ahorro</h3>
+  <form (ngSubmit)="agregarAhorro()" #formAhorro="ngForm">
+    <input type="text" name="nombreAhorro" [(ngModel)]="nuevoAhorro.nombreAhorro" placeholder="Nombre del ahorro" required />
+    <input type="date" name="fechaAhorro" [(ngModel)]="nuevoAhorro.fechaAhorro" required />
+    <input type="number" name="montoAhorro" [(ngModel)]="nuevoAhorro.montoAhorro" placeholder="Monto" required />
+    <button type="submit">Agregar</button>
+  </form>
 </div>

@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule, DatePipe } from "@angular/common";
+import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { GastosServicio } from "../../../services/gastosServicio";
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -8,7 +8,7 @@ const jwtHelperService = new JwtHelperService();
 
 @Component({
   selector: 'app-gastos',
-  imports: [CommonModule, DatePipe, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './gastos.html',
   styleUrl: './gastos.css'
 })
@@ -36,7 +36,7 @@ export class Gastos implements OnInit{
     this.gastoEditando = { ...gasto };
   }
 
-  guardarEdicion() {
+  guardarEdicionGasto() {
     this.gastosService.actualizarGasto(this.gastoEditando._id, this.gastoEditando).subscribe(() => {
       this.gastoEditando = null;
       this.obtenerGastos();

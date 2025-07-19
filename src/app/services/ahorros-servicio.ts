@@ -4,27 +4,27 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class GastosServicio {
+export class AhorrosServicio {
   private httpClient = inject(HttpClient);
-  private apiUrl = "http://localhost:4100/api/gastos";
+  private apiUrl = "http://localhost:4100/api/ahorros";
 
-  // Obtener todos los gastos
-  getTodosGastos() {
+  //Obtener todos los ahorros
+  getTodosAhorros() {
     return this.httpClient.get(this.apiUrl);
   }
 
-  // Crear nuevo gasto
-  crearGasto(data: any) {
+  // Crear nuevo ahorro
+  crearAhorro(data: any) {
     return this.httpClient.post(this.apiUrl, data);
   }
 
-  // Actualizar gasto existente
-  actualizarGasto(id: string, data: any) {
+  // Actualizar ahorro existente
+  actualizarAhorro(id: string, data: any) {
     return this.httpClient.put(`${this.apiUrl}/${id}`, data);
   }
 
-  // Eliminar gasto
-  eliminarGasto(id: string) {
+  // Eliminar ahorro
+  eliminarAhorro(id: string) {
     return this.httpClient.delete(`${this.apiUrl}/${id}`);
   }
 }

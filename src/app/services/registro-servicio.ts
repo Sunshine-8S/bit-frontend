@@ -8,7 +8,7 @@ export class RegistroServicio {
   constructor() { }
 
   private httpClient = inject(HttpClient);
-  private apiUrl = "http://localhost:4100/usuarios/registrarse";
+  private apiUrl = "http://localhost:4100/api/usuarios/registrarse";
 
   registrarUsuario(payload:any){
     return this.httpClient.post(this.apiUrl, payload)

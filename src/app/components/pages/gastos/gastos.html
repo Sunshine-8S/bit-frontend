@@ -2,7 +2,7 @@
   <div class="card border-warning">
     <div class="card-body">
       <h3 class="card-title text-center mb-3">Editar gasto</h3>
-      <form (ngSubmit)="guardarEdicion()" #formEditar="ngForm">
+      <form (ngSubmit)="guardarEdicionGasto()" #formEditarGasto="ngForm">
         <div class="mb-3">
           <input type="text" class="form-control" name="nombreGasto" [(ngModel)]="gastoEditando.nombreGasto" placeholder="Nombre del gasto" required />
         </div>
@@ -28,7 +28,6 @@
 
 <div class="container mt-5">
   <h2 class="text-center mb-4">Gastos de {{ nombreUsuario }}</h2>
-
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     <div class="col" *ngFor="let gasto of gastos">
       <div class="card border-danger h-100">
@@ -36,7 +35,7 @@
           <h5 class="card-title">{{ gasto.nombreGasto }}</h5>
           <p class="card-text">
             <strong>Fecha:</strong> {{ gasto.fechaGasto | date:'shortDate' }}<br>
-            <strong>Monto:</strong> ${{ gasto.montoGasto }}<br>
+            <strong>Monto:</strong> {{ gasto.montoGasto | currency:'COP':'symbol-narrow':'1.0-0'}}<br>
             <strong>Pagado:</strong> 
             <span [class.text-success]="gasto.gastoPagado" [class.text-danger]="!gasto.gastoPagado">
               {{ gasto.gastoPagado ? 'Sí' : 'No' }}
@@ -62,9 +61,3 @@
     </label>
     <button type="submit">Agregar</button>
   </form>
-
-
-
-
-
-
